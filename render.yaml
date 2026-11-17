@@ -1,0 +1,26 @@
+# مخطط اختياري للنشر على Render (يمكن بدلاً منه إنشاء Web Service يدوياً بنفس الأوامر)
+services:
+  - type: web
+    name: test-bot
+    runtime: python
+    plan: free
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    healthCheckPath: /healthz
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_TELEGRAM_ID
+        sync: false
+      - key: ADMIN_PASSWORD
+        sync: false
+      - key: SECRET_KEY
+        sync: false
+      - key: EMAIL_DOMAIN
+        value: example.com
+      - key: SET_SHAM_NUMBER
+        sync: false
+      - key: SET_EXCHANGE_RATE
+        value: "14000"
